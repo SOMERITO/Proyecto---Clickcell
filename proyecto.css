@@ -1,4 +1,4 @@
-*, *::before, *::after {
+    *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -161,23 +161,158 @@ body{
       line-height: 1.75;
     }
 
-    .hero-equipos{
+    /* =========================================
+   SLIDER DE EQUIPOS
+========================================= */
+
+.phones-slider{
+    position: relative;
+    width: 1240px;
+    margin: 50px auto 0;
+    overflow: hidden;
+}
+
+/* CONTENEDOR DEL SLIDER */
+
+.hero-equipos{
     display: flex;
     gap: 20px;
-    margin-top: 30px;
-    align-items: center;
+    transition: transform 0.5s ease;
 }
 
-.hero-equipos img{
-    width: 180px;
-    height: auto;
-    border-radius: 15px;
-    transition: transform 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+/* TARJETAS */
+
+.phone-card{
+    min-width: 295px;
+    max-width: 295px;
+
+    background: white;
+    border-radius: 22px;
+
+    padding: 20px;
+
+    text-align: center;
+
+    flex-shrink: 0;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.10);
+
+    transition: 0.3s;
 }
 
-.hero-equipos img:hover{
-    transform: scale(1.05);
+.phone-card:hover{
+    transform: translateY(-8px);
+}
+
+/* IMAGEN */
+
+.phone-card img{
+    width: 100%;
+    height: 210px;
+
+    object-fit: cover;
+    
+
+    border-radius: 18px;
+}
+
+/* TITULO */
+
+.phone-card h3{
+    margin-top: 15px;
+    font-size: 22px;
+    color: #111827;
+}
+
+/* DESCRIPCION */
+
+.phone-card p{
+    color: #6b7280;
+    font-size: 15px;
+    margin: 10px 0;
+}
+
+/* PRECIO */
+
+.phone-card span{
+    display: block;
+
+    font-size: 28px;
+    font-weight: bold;
+
+    color: #2563eb;
+
+    margin-bottom: 15px;
+}
+
+/* BOTON */
+
+.phone-card button{
+    background: #2563eb;
+    color: white;
+
+    border: none;
+
+    padding: 12px 20px;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.phone-card button:hover{
+    background: #1d4ed8;
+}
+
+/* BOTONES FLECHAS */
+
+.slider-btn{
+    position: absolute;
+
+    top: 50%;
+    transform: translateY(-50%);
+
+    background: rgba(255,255,255,0.15); /* azul transparente */
+
+    backdrop-filter: blur(5px);
+
+    color: #2563eb;
+
+    border: 1px solid rgba(255,255,255,0.25);
+
+    width: 55px;
+    height: 55px;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    font-size: 28px;
+
+    z-index: 100;
+
+    transition: 0.3s;
+}
+
+.slider-btn:hover{
+    background: rgba(37, 99, 235, 0.7);
+    transform: translateY(-50%) scale(1.08);
+}
+
+/* IZQUIERDA */
+
+.left{
+    left: 10px;
+}
+
+/* DERECHA */
+
+.right{
+    right: 10px;
 }
 
     /* ===================== ESTADISTICAS DEL NEGOCIO ===================== */
@@ -188,6 +323,7 @@ body{
       padding: 40px 48px;
       max-width: 700px;
       margin: 0 auto;
+      scroll-margin-top:150px;
     }
 
     .stat-card {
@@ -411,47 +547,125 @@ body{
     }
 
     /* ===================== CONTACTO ASESOR ===================== */
-    .contact-asesor {
-      background: linear-gradient(135deg, var(--blue-500), var(--blue-700));
-      padding: 64px 48px;
-      text-align: center;
-      color: var(--white);
-      scroll-margin-top:150px;
-    }
+    .contact-asesor{
+    text-align:center;
+    padding:80px 20px;
+    background:linear-gradient(135deg,#1d4ed8,#2563eb);
+    color:white;
+    padding-bottom:150px;
+}
 
-    .contact-asesor h2 {
-      font-family: var(--font-display);
-      font-size: 30px;
-      font-weight: 800;
-      margin-bottom: 14px;
-    }
+.contact-asesor h2{
+    font-size:42px;
+    margin-bottom:20px;
+}
 
-    .contact-asesor p {
-      font-size: 15px;
-      opacity: 0.85;
-      margin-bottom: 32px;
-      max-width: 440px;
-      margin-left: auto;
-      margin-right: auto;
-    }
+.contact-asesor p{
+    max-width:700px;
+    margin:auto;
+    font-size:18px;
+    line-height:1.6;
+}
 
-    .btn-white {
-      background: var(--white);
-      color: var(--blue-700);
-      border: none;
-      border-radius: var(--radius-sm);
-      padding: 14px 36px;
-      font-size: 15px;
-      font-weight: 700;
-      cursor: pointer;
-      font-family: var(--font-body);
-      transition: opacity 0.2s, transform 0.15s;
-    }
 
-    .btn-white:hover {
-      opacity: 0.95;
-      transform: translateY(-1px);
-    }
+/* =========================================
+   BOTONES SOCIALES
+========================================= */
+
+.social-buttons{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+    margin-top:40px;
+    flex-wrap:wrap;
+}
+
+.social-btn{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:15px 25px;
+    border-radius:50px;
+    text-decoration:none;
+    color:white;
+    font-weight:600;
+    transition:0.3s;
+    border:none;
+    cursor:pointer;
+}
+
+.social-btn i{
+    font-size:22px;
+}
+
+.social-btn:hover{
+    transform:translateY(-5px);
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+
+/* =========================================
+   COLORES REDES SOCIALES
+========================================= */
+
+.whatsapp-btn{
+    background:#25D366;
+}
+
+.facebook{
+    background:#1877F2;
+}
+
+.instagram{
+    background:linear-gradient(
+        45deg,
+        #f58529,
+        #dd2a7b,
+        #8134af,
+        #515bd4
+    );
+}
+
+
+/* =========================================
+   MENÚ WHATSAPP
+========================================= */
+
+.whatsapp-menu{
+    position:relative;
+    display:inline-block;
+    overflow:visible;
+}
+
+.whatsapp-options{
+    display:none;
+    position:absolute;
+    top:70px;
+    left:0;
+    background:white;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.15);
+    min-width:250px;
+    z-index:999;
+}
+
+.whatsapp-options a{
+    display:block;
+    padding:15px;
+    text-decoration:none;
+    color:#333;
+    transition:0.3s;
+}
+
+.whatsapp-options a:hover{
+    background:#f3f4f6;
+}
+
+/* Mostrar menú */
+.whatsapp-menu:hover .whatsapp-options{
+    display:block;
+}
 
     /* ===================== FOOTER ===================== */
     footer {
@@ -528,6 +742,7 @@ body{
       .cta-banner {
         padding: 48px 20px;
       }
+      
 
       footer {
         padding: 24px 20px;
@@ -535,3 +750,5 @@ body{
         text-align: center;
       }
     }
+  </body>
+</html>
