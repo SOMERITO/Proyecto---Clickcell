@@ -27,32 +27,197 @@
       <!-- ============= Enlaces de navegación ============= -->
       <div class="cc-nav-links">
         <a href="#inicio">Inicio</a>
-        <a href="#funciones">Funciones</a>
         <a href="#equipos">Equipos</a>
+        <a href="#">Modelos</a>
         <a href="#contacto">Contacto</a>
       </div>
 
       <!-- ============= Botón ============= -->
       <div>
-        <button class="btn-demo">Prueba Gratis para Negocio ⮞</button>
+        <button class="btn-demo">Iniciar Sesion ⮞</button>
       </div>
     </nav>
 
-    <!-- ========== HERO ========== -->
+    <!-- ========== INICIO ========== -->
     <section class="hero" id="inicio">
         <div class="hero-badge">✦ Sistema de ventas para celulares ✦</div>
 
         <h1>Ventas al alcance<br>de tu <span>mano</span></h1>
-            <p>Gestiona tu negocio de celulares con facilidad. Control de inventario, ventas y clientes desde un solo lugar.</p>
+            <p>Los mejores smartphones con garantía, delivery y atención personalizada.</p>
       
+        <div class="phones-slider">
 
-        <div class="hero-equipos">
-          <img src="iphone13.jpg" alt="Equipo 1">
-          <img src="s21.jpg" alt="Equipo 2">
-          <img src="redmi10s.jpeg" alt="Equipo 3">
-          <img src="f4gt.jfif" alt="Equipo 4">
+        <!-- BOTÓN IZQUIERDA -->
+        <button class="slider-btn left" onclick="moveSlide(-1)">
+        ❮
+        </button>
+
+      <div class="hero-equipos" id="slider">
+          <div class="phone-card">
+            <img src="iphone13.jpg" alt="iPhone13">
+            <h3>iPhone 13</h3>
+            <p>128GB • Seminuevo</p>
+            <span>S/2,399</span>
+            <button>Ver Equipo</button>
+          </div>
+
+          <div class="phone-card">
+            <img src="iphone14pro.webp" alt="iPhone14pro">
+            <h3>iPhone 14 Pro</h3>
+            <p>128GB • Nuevo</p>
+            <span>S/2,899</span>
+            <button>Ver Equipo</button>
+          </div>
+
+        <div class="phone-card">
+          <img src="s21.jpg" alt="Samsungs21">
+          <h3>Samsung S21 Ultra</h3>
+          <p>256GB • Nuevo</p>
+          <span>S/2,899</span>
+          <button>Ver Equipo</button>
         </div>
+
+        <div class="phone-card">
+          <img src="redmi10s.jpeg" alt="Redmi10s">
+          <h3>Redmi Note 10S</h3>
+          <p>128GB • Reacondicionado</p>
+          <span>S/799</span>
+          <button>Ver Equipo</button>
+        </div>
+
+        <div class="phone-card">
+          <img src="redminote13.webp" alt="Redmi13">
+          <h3>Redmi Note 13</h3>
+          <p>128GB • Nuevo</p>
+          <span>S/799</span>
+          <button>Ver Equipo</button>
+        </div>
+
+        <div class="phone-card">
+          <img src="f4gt.jfif" alt="Pocof4gt">
+          <h3>Poco F4 GT</h3>
+          <p>Gaming • 256GB</p>
+          <span>S/1,699</span>
+          <button>Ver Equipo</button>
+        </div>
+
+        <!-- DUPLICADAS -->
+         <div class="phone-card">
+            <img src="iphone13.jpg" alt="iPhone13">
+            <h3>iPhone 13</h3>
+            <p>128GB • Seminuevo</p>
+            <span>S/2,399</span>
+            <button>Ver Equipo</button>
+          </div>
+
+          <div class="phone-card">
+            <img src="iphone14pro.webp" alt="iPhone14pro">
+            <h3>iPhone 14 Pro</h3>
+            <p>128GB • Nuevo</p>
+            <span>S/2,899</span>
+            <button>Ver Equipo</button>
+          </div>
+
+        <div class="phone-card">
+          <img src="s21.jpg" alt="Samsungs21">
+          <h3>Samsung S21 Ultra</h3>
+          <p>256GB • Nuevo</p>
+          <span>S/2,899</span>
+          <button>Ver Equipo</button>
+        </div>
+
+        <div class="phone-card">
+          <img src="redmi10s.jpeg" alt="Redmi10s">
+          <h3>Redmi Note 10S</h3>
+          <p>128GB • Reacondicionado</p>
+          <span>S/499</span>
+          <button>Ver Equipo</button>
+        </div>
+
+        <div class="phone-card">
+          <img src="redminote13.webp" alt="Redmi13">
+          <h3>Redmi Note 13</h3>
+          <p>128GB • Nuevo</p>
+          <span>S/799</span>
+          <button>Ver Equipo</button>
+        </div>
+
+        <div class="phone-card">
+          <img src="f4gt.jfif" alt="Pocof4gt">
+          <h3>Poco F4 GT</h3>
+          <p>Gaming • 256GB</p>
+          <span>S/1,699</span>
+          <button>Ver Equipo</button>
+        </div>
+      </div>
+
+        <!-- BOTÓN DERECHA -->
+        <button class="slider-btn right" onclick="moveSlide(1)">
+        ❯
+        </button>
+      </div>
     </section>
+
+    <!-- ========== SCRIPT ========== -->
+      <script>
+
+        const slider = document.getElementById("slider");
+
+        const cardWidth = 315;
+
+        let currentIndex = 0;
+
+        const totalOriginalCards =
+        slider.children.length / 2;
+
+      /* MOVER SLIDER */
+
+      function updateSlider(smooth = true){
+
+      if(smooth){
+        slider.style.transition =
+        "transform 0.5s ease";
+      } else {
+        slider.style.transition =
+        "none";
+      }
+
+      slider.style.transform =
+      `translateX(-${currentIndex * cardWidth}px)`;
+      }
+
+      /* BOTONES */
+
+      function moveSlide(direction){
+
+      currentIndex += direction;
+      updateSlider(true);
+      /* EFECTO INFINITO */
+      if(currentIndex >= totalOriginalCards){
+
+        setTimeout(() => {
+
+            updateSlider(false);
+
+            currentIndex = 0;
+
+            slider.style.transform =
+            `translateX(0px)`;  
+          }, 500);
+        }
+        if(currentIndex < 0){
+
+        currentIndex =
+        totalOriginalCards - 1;
+        updateSlider(false);
+        }
+        }
+
+        /* AUTOPLAY */
+        setInterval(() => {
+        moveSlide(1);
+        }, 3000);
+      </script>
 
     <!-- ========== ESTADÍSTICAS ========== -->
         <div class="stats">
@@ -71,49 +236,86 @@
         </div>
 
     <!-- ========== FUNCIONES ========== -->
-    <section class="features" id="funciones">
-        <div class="section-label">Funciones de ClickCell</div>
-        <div class="section-title">Todo lo que necesitas</div>
+    <section class="features">
 
-            <div class="features-grid">
-            <div class="feat-card">
-                <div class="feat-icon">
-                    <i class="ti ti-device-mobile"></i>
-                </div>
-                <div class="feat-title">Obsequios</div>
-                <div class="feat-desc">Gestiona tus obsequios y promociones de forma sencilla.</div>
+    <div class="section-label">
+        ¿POR QUÉ ELEGIR CLICKCELL?
+    </div>
+
+    <div class="section-title">
+        La mejor experiencia en celulares
+    </div>
+
+    <div class="features-grid">
+
+        <!-- TARJETA 1 -->
+        <div class="feat-card">
+            <div class="feat-icon">
+                <i class="ti ti-shield-check"></i>
             </div>
 
-            <div class="feat-card">
-                <div class="feat-icon">
-                    <i class="ti ti-receipt"></i>
-                </div>
-                <div class="feat-title">Ventas</div>
-                <div class="feat-desc">Registra y consulta todas tus ventas con reportes detallados al instante.</div>
+            <div class="feat-title">
+                Garantía incluida
             </div>
 
-            <div class="feat-card">
-                <div class="feat-icon">
-                    <i class="ti ti-users"></i>
-                </div>
-                <div class="feat-title">Clientes</div>
-                <div class="feat-desc">Gestiona tu cartera de clientes y consulta su historial de compras fácilmente.</div>
-            </div>
-
-            <div class="feat-card">
-                <div class="feat-icon">
-                    <i class="ti ti-chart-bar"></i>
-                </div>
-                <div class="feat-title">Reportes</div>
-                <div class="feat-desc">Estadísticas claras y visuales para tomar mejores decisiones de negocio.</div>
+            <div class="feat-desc">
+                Todos nuestros equipos cuentan con garantía y soporte técnico especializado.
             </div>
         </div>
-    </section>
+
+        <!-- TARJETA 2 -->
+        <div class="feat-card">
+            <div class="feat-icon">
+                <i class="ti ti-device-mobile"></i>
+            </div>
+
+            <div class="feat-title">
+                Equipos originales
+            </div>
+
+            <div class="feat-desc">
+                Trabajamos con celulares nuevos, seminuevos y reacondicionados certificados.
+            </div>
+        </div>
+
+        <!-- TARJETA 3 -->
+        <div class="feat-card">
+            <div class="feat-icon">
+                <i class="ti ti-truck-delivery"></i>
+            </div>
+
+            <div class="feat-title">
+                Delivery rápido
+            </div>
+
+            <div class="feat-desc">
+                Envíos seguros y rápidos para que recibas tu equipo sin preocupaciones.
+            </div>
+        </div>
+
+        <!-- TARJETA 4 -->
+        <div class="feat-card">
+            <div class="feat-icon">
+                <i class="ti ti-credit-card"></i>
+            </div>
+
+            <div class="feat-title">
+                Pagos seguros
+            </div>
+
+            <div class="feat-desc">
+                Aceptamos transferencias, tarjetas y distintos métodos de pago.
+            </div>
+        </div>
+
+    </div>
+
+</section>
     
     <main>
     <!-- ========== EQUIPOS ========== -->
     <section class="plans" id="equipos">
-        <div class="section-title">Elige el pack que más te conviene</div>
+        <div class="section-title">¡Elige el equipo que más te conviene!</div>
 
         <div class="plans-grid">
 
@@ -244,5 +446,3 @@
         </nav>
 
     </footer>
-  </body>
-</html>
